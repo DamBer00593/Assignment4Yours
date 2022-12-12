@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -81,25 +81,19 @@ namespace Lab5
             }
             return sum;
         }
-        public int CountOdd()
+        private int CountOdd()
         {
-            int numericUpDown = Convert.ToInt32(nudHowMany.Value);
             int oddNum = 0;
-            int count = lstNumbers.Items.Count;
-            lblOdd.Text = Convert.ToString(oddNum);
+            int count = 0;
 
             do
             {
-                if (Convert.ToInt32(lstNumbers.Items[count]) % 2 == 1)
-                {
-                    oddNum++;
-                }
+                if (Convert.ToInt32(lstNumbers.Items[count]) % 2 != 0) { oddNum++; }
                 count++;
-            }
-            while (lstNumbers.Items.Count > count);
-            return count;
+            }while(lstNumbers.Items.Count > count);
+        return oddNum;
         }
-        public Form1()
+    public Form1()
         {
             InitializeComponent();
             //Add your name to the end of the form title using the constant. Do not type
@@ -122,7 +116,7 @@ namespace Lab5
             {
                 //Count how many login attempts are made where the code does not match.
                 loginAttCount++;
-                if (lblCode.Text == Convert.ToString(loginAttCount))
+                if (lblCode.Text == Convert.ToString(txtCode.Text))
                 {
                     //If it matches, show the Choose group and disable the Login group.
                     grpChoose.Visible = true;
@@ -178,7 +172,7 @@ namespace Lab5
 
                 txtString1.Text = strOne;
                 txtString2.Text = strTwo;
-                lblResults..Text += "Strings have been swapped\n";
+                lblResults.Text += "Strings have been swapped\n";
             }
 
         }
